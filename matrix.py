@@ -1,11 +1,15 @@
 import numpy as np  
 import random
-import os
+from os import system, name
 import time
 alphabet = [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'] 
-
+def clear():
+    if name == 'nt':
+        _ = system('cls')
+    else:
+        _ = system("clear")
 def encode():
-    os.system("clear")
+    clear()
     alphabet_values = []
     for i in range(0, len(alphabet)):
         alphabet_values.append(i)
@@ -43,18 +47,18 @@ def encode():
     mat = li_str(mat)
     print("\x1b[1;32m[+] Please wait...we're working for you :-)")
     time.sleep(5)
-    os.system('clear')
+    clear()
     print("Encoded Message: ", result)
-    print("Encoded key: ", mat)
+    print("Encoding key: ", mat)
     print("\n\x1b[1;31mThis key is Random key. Don't Forget it!\n")
     time.sleep(3)
 
 # ---------------------decode-----------------------
 def decode():
-    os.system("clear")
+    clear()
     print("Enter Key and Message seperated by comma ','")
     time.sleep(3)
-    os.system('clear')
+    clear()
     key = input("Enter key: ")
     def str_list(a):
         li = list(a.split(','))
