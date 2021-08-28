@@ -9,7 +9,7 @@ Happy with encoding... :-)
 2. Decode
 3. Exit
 
-Enter choice: *
+Enter choice: 1
 
 * Enter choice yours
 
