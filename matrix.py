@@ -70,11 +70,13 @@ def decode():
         c = [c[i:i +3] for i in range(0, len(c), 3)]
         return c
     key = str_list(key)
-    if len(key) != 3:
-        print("\033[1;31m Wrong Key :-(")
-        print("\033[1;31m Program will be Exited..")
-        time.sleep(3)
-        exit()
+    for i in range(len(key)):
+        for j in range(len(key[0])):
+            if (key[i][j]) >= 20:
+                print("\033[1;31m Wrong Key :-(")
+                print("\033[1;31m Program will be Exited..")
+                time.sleep(3)
+                exit()
     msg = input("Enter encoded message: ")
     msg = str_list(msg)
     key = np.linalg.inv(key)
