@@ -11,16 +11,19 @@ Happy with encoding... :-)
 
 Enter choice: 1
 
-* Enter choice yours
+Enter Message: Hello @world
 
- [After Encoding]
- 
- [Encoded Message:  466, 321, 554, 540, 447, 520, 466, 316, 562]
- [Encoding key:  13, 8, 17, 15, 9, 20, 13, 16, 4]
+Encoded Message:  208, 238, 247, 252, 438, 297, 558, 1019, 657, 250, 480, 294
+Encoding key:  1, 14, 1, 16, 18, 19, 10, 3, 12
 
 This key is Random key. Don't Forget it!
 
-* This key is randomly generated.
+[Decode]
 
+Enter Choice: 2
 
-[Try Decoding...]
+[+] Enter Key and Message seperated by comma ','
+[+] Enter key: 1, 14, 1, 16, 18, 19, 10, 3, 12
+
+Enter encoded message: 208, 238, 247, 252, 438, 297, 558, 1019, 657, 250, 480, 294
+You'r Decoded message is  hello @world
