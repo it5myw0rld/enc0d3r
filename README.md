@@ -24,7 +24,9 @@ This key is Random key. Don't Forget it!
 Enter Choice: 2
 
 [+] Enter Key and Message seperated by comma ','
+
 [+] Enter key: 1, 14, 1, 16, 18, 19, 10, 3, 12
 
 Enter encoded message: 208, 238, 247, 252, 438, 297, 558, 1019, 657, 250, 480, 294
+
 You'r Decoded message is  hello @world
