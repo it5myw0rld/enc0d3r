@@ -1,8 +1,7 @@
 import numpy as np  
-import random
+import random, time
 from os import system, name
-import time
-alphabet = [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'] 
+alphabet = " abcdefghijklmnopqrstuvwxyz1234567890~`!@#$%^&*()-=_+[]{}\\|'\"/.,><" 
 def clear():
     if name == 'nt':
         _ = system('cls')
@@ -10,10 +9,8 @@ def clear():
         _ = system("clear")
 def encode():
     clear()
-    alphabet_values = []
-    for i in range(0, len(alphabet)):
-        alphabet_values.append(i)
-    message = input("Enter Message: ")
+    alphabet_values = [i for i in range(0, len(alphabet))]
+    message = input("[+] Enter Message: ")
     message = message.lower()
     msg_int = []
     for i in range(len(message)):
@@ -46,20 +43,21 @@ def encode():
     result = li_str(result)
     mat = li_str(mat)
     print("\x1b[1;32m[+] Please wait...we're working for you :-)")
-    time.sleep(5)
+    time.sleep(1)
     clear()
     print("Encoded Message: ", result)
     print("Encoding key: ", mat)
     print("\n\x1b[1;31mThis key is Random key. Don't Forget it!\n")
-    time.sleep(3)
-
+    time.sleep(2)
+    ch = input("\n[!] Do You continue[Y/n]: ")
+    if ch.lower() == 'n':
+        exit()
+    print('\n\n\n')
 # ---------------------decode-----------------------
 def decode():
     clear()
-    print("Enter Key and Message seperated by comma ','")
-    time.sleep(3)
-    clear()
-    key = input("Enter key: ")
+    print("\033[1;33m[+] Enter Key and Message seperated by comma ','")
+    key = input("[+] Enter key: ")
     def str_list(a):
         li = list(a.split(','))
         li = [li[i:i +3] for i in range(0, len(li), 3)]
@@ -72,12 +70,12 @@ def decode():
     key = str_list(key)
     for i in range(len(key)):
         for j in range(len(key[0])):
-            if (key[i][j]) >= 20:
+            if (key[i][j]) >= 21:
                 print("\033[1;31m Wrong Key :-(")
                 print("\033[1;31m Program will be Exited..")
                 time.sleep(3)
                 exit()
-    msg = input("Enter encoded message: ")
+    msg = input("[+] Enter encoded message: ")
     msg = str_list(msg)
     key = np.linalg.inv(key)
     decoded = np.dot(msg, key)
@@ -87,12 +85,18 @@ def decode():
         for k in range(len(decoded[0])):
             result += alphabet[round(decoded[i][k])]
     print("You'r Decoded message is ", result)
-
-print("------------------------Menu--------------------\n1. Encode\n2. Decode\n3. Exit\n")
-choice = int(input('Enter choice: '))
-if choice == 1:
-    encode()
-elif choice == 2:
-    decode()
-else:
-    exit()
+    ch = input("\n[!] Do You Continue[Y/n]: ").lower()
+    if ch == 'n':
+        exit()
+    print("\n\n\n")
+if __name__ == '__main__':
+	while(True):
+		print("------------------------Menu--------------------\n1. Encode\n2. Decode\n3. Exit\n")
+		choice = int(input('Enter choice: '))
+		if choice == 1:
+			encode()
+		elif choice == 2:
+			decode()
+		else:
+			print("[!] Bye!. Shutdowning...")
+			break
